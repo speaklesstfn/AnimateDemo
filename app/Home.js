@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import {
+    StyleSheet,
     View,
     Text,
     TouchableOpacity,
@@ -80,7 +81,7 @@ export default class Home extends Component {
     }
 }
 
-const styles = Stylesheet.create({
+const styles = StyleSheet.create({
     view: {
         flex: 1,
     },

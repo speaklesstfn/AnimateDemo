@@ -8,8 +8,8 @@ import React, {Component} from 'react';
 import {
     AppRegistry,
 } from 'react-native';
-import App from './app/App';
 
+import App from './app/App';
 
 export default class AnimateDemo extends Component {
     render() {

@@ -14,8 +14,9 @@ export default class App extends Component {
         return (
             <Navigator
                 initialRoute={{name:'home',component:Home}}
+                configureScene={(route,routeStack) => Navigator.SceneConfigs.FloatFromRight}
                 renderScene={(route,navigator) => {
-                    return <route.component {...params} name={route.name} navigator={navigator}/>
+                    return <route.component {...route.params} name={route.name} navigator={navigator}/>
                 }}
             />
         );

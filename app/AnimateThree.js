@@ -23,7 +23,7 @@ export default class AnimateThree extends Component {
         });
     }
 
-    componentDidUnmount() {
+    componentWillUnMount() {
         BackAndroid.removeEventListener('hardwareBackPress');
     }
 
@@ -47,7 +47,7 @@ export default class AnimateThree extends Component {
                         style={styles.leftButton}
                         onPress={this._onBackButtonClick}
                     >
-                        <Image soure={require('./assets/back.png')}/>
+                        <Image source={require('./assets/back.png')}/>
                     </TouchableOpacity>
 
                     <Text style={styles.titleText}>动画3</Text>
@@ -67,10 +67,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    titleText: {
-        fontSize: 20,
-        color: '#ffffff',
-    },
     leftButton: {
         position: 'absolute',
         left: 0,
@@ -78,5 +74,9 @@ const styles = StyleSheet.create({
         bottom: 0,
         paddingHorizontal: 15,
         justifyContent: 'center',
+    },
+    titleText: {
+        fontSize: 20,
+        color: '#ffffff',
     },
 });

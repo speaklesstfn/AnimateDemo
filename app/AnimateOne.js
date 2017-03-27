@@ -23,7 +23,7 @@ export default class AnimateOne extends Component {
         });
     }
 
-    componentDidUnmount() {
+    componentWillUnMount() {
         BackAndroid.removeEventListener('hardwareBackPress');
     }
 
@@ -47,7 +47,7 @@ export default class AnimateOne extends Component {
                         style={styles.leftButton}
                         onPress={this._onBackButtonClick}
                     >
-                        <Image soure={require('./assets/back.png')}/>
+                        <Image source={require('./assets/back.png')}/>
                     </TouchableOpacity>
 
                     <Text style={styles.titleText}>动画1</Text>
