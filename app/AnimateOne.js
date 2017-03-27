@@ -9,9 +9,19 @@ import {
     TouchableOpacity,
     Image,
     BackAndroid,
+    Animated,
+    Easing,
 } from 'react-native';
 
 export default class AnimateOne extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            fadeInOpacity: new Animated.Value(0),
+        };
+    }
+
     componentDidMount() {
         const {navigator} = this.props;
         BackAndroid.addEventListener('hardwareBackPress', function () {
@@ -21,6 +31,12 @@ export default class AnimateOne extends Component {
             }
             return false;
         });
+
+        Animated.timing(this.state.fadeInOpacity, {
+            toValue: 1,
+            duration: 3000,
+            easing: Easing.circle,
+        }).start();
     }
 
     componentWillUnMount() {
@@ -52,6 +68,12 @@ export default class AnimateOne extends Component {
 
                     <Text style={styles.titleText}>动画1</Text>
                 </View>
+
+                <Animated.View
+                    style={[styles.animate,{opacity: this.state.fadeInOpacity,}]}
+                >
+                    <Text style={styles.text}>悄悄的,我出现了</Text>
+                </Animated.View>
             </View>
         );
     }
@@ -78,5 +100,14 @@ const styles = StyleSheet.create({
         bottom: 0,
         paddingHorizontal: 15,
         justifyContent: 'center',
+    },
+    animate: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+    },
+    text: {
+        fontSize: 30,
     },
 });
